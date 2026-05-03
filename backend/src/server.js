@@ -10,6 +10,7 @@ const { errorHandler } = require('./middleware/errorHandler');
 dotenv.config();
 
 const app = express();
+app.set('trust proxy', 1);
 app.use(helmet());
 app.use(express.json());
 app.use(cors({ origin: process.env.CLIENT_URL || '*', credentials: true }));
