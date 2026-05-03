@@ -15,6 +15,14 @@ app.use(helmet());
 app.use(express.json());
 app.use(cors({ origin: process.env.CLIENT_URL || '*', credentials: true }));
 
+app.get('/', (req, res) => {
+  res.send('Server running 🚀');
+});
+
+app.get('/api/v1', (req, res) => {
+  res.send('API working ✅');
+});
+
 const limiter = rateLimit({ windowMs: 60 * 1000, max: 100 });
 app.use(limiter);
 
